@@ -15,7 +15,7 @@ class EooNews(BasicNewsRecipe):
     remove_javascript = True
     delay = 1
     extra_css = 'p {text-indent: 1.2em;} \n .btcbig {font-weight: 600;font-size:1.2em;text-indent:0;text-align:center;margin-top:0.8em;margin-bottom:0.3em;}'
-    max_articles_per_feed = 30 #篇数，默认100篇
+    max_articles_per_feed = 5 #篇数，默认100篇
     #oldest_article = 1 #天数，默认7天
     recursions = 1
     #max_articles_per_feed = 5
