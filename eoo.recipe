@@ -40,6 +40,7 @@ class EooNews(BasicNewsRecipe):
             #if new:
             #for new in news:
             content = self.get_page_content(url)
+            i=0
             if content:
                 #items = content.find('div',attrs={'class':'marquee'}).findAll('a')
                 #for a in items:
@@ -53,10 +54,13 @@ class EooNews(BasicNewsRecipe):
                 for a in items:
                     #a = item.find('a', href=True)
                     if a:
+                        i+=1
                         #print "URL: ",a
                         url=a['href']
                         title=self.tag_to_string(a).strip()
                         articles.append(dict(title=title, url=url))
+                    if i>=max_articles_per_feed:
+                        break
             if len(articles) > 0:
                 ans.append((topic, articles))
         return ans
