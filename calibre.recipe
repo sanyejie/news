@@ -175,7 +175,7 @@ class EooNews(BasicNewsRecipe):
         return json.loads(file(path).read().decode('gbk')) #file(path)或open(path)都可以
     
     def fetch_data_eoo(self, url):
-        f = urllib.urlopen(url).read()
+        f = urllib.request.urlopen(url).read()
         return json.loads(f)
 
     def get_page_content(self, url):
