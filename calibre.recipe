@@ -72,7 +72,6 @@ class EooNews(BasicNewsRecipe):
     }
     feeds_eoo1 = {
         '商业': 'https://app.eeo.com.cn/?app=article&controller=index&action=getMoreArticle&catid=3572',
-        '财经': 'https://app.eeo.com.cn/?app=article&controller=index&action=getMoreArticle&catid=3548',
     }
     feeds_eoo2 = {
         '科技': 'https://app.eeo.com.cn/?app=article&controller=index&action=getMoreArticle&catid=3549',
