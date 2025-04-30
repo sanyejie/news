@@ -30,6 +30,7 @@ class EooNews(BasicNewsRecipe):
     #keep_only_tags = [dict(name='div',class_='t-center')] #dict(id='topbox')] #仅保留指定的标签及其子标签
     remove_tags = [
         dict(name='div',class_=["aboutctrl","abstract","thiszihao-box-add","top-wenzhang","xd-xd-xd-rwm","xd-lj","tit01","float-right"]),
+        dict(name='a',class_=["xd-a-left","right_ewm"]),
         dict(name='span',class_=["subtitle"]),
         dict(id=["slide_left_box"]),
         dict(name=["head","header","script","style","ul"])] #要删除的标签列表
@@ -50,9 +51,8 @@ class EooNews(BasicNewsRecipe):
         (re.compile(' style=".+?"', re.S),lambda match: ''),
         #(re.compile('<img .{20,68}?\.png.+?>'),lambda match: ''),
         (re.compile('<div id="zoom" class="font16">.+?</div>', re.S),lambda match: '<div id="zoom" class="font16"> </div>'),
-        (re.compile('">(<img src="https://jg-app(.*?)>){1}', re.S),lambda match: '"><b>该处已删</b>'),
+        (re.compile('">(<img src="https://jg-app(.*?)>){6}', re.S),lambda match: '"><b>该处已删</b>'),
         (re.compile('(<img src="http://upload.eeo.com.cn(.*?)>){1}', re.S),lambda match: ''),
-        #(re.compile('(<img src="https://np-newspic.dfcfw.com(.*?)>){1}', re.S),lambda match: ''),
         (re.compile('\u3000|<div>1</div>', re.S),lambda match: '')]
 
     feeds_dc = {
