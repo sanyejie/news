@@ -51,8 +51,9 @@ class EooNews(BasicNewsRecipe):
         (re.compile(' style=".+?"', re.S),lambda match: ''),
         #(re.compile('<img .{20,68}?\.png.+?>'),lambda match: ''),
         (re.compile('<div id="zoom" class="font16">.+?</div>', re.S),lambda match: '<div id="zoom" class="font16"> </div>'),
-        (re.compile('">(<img src="https://jg-app(.*?)>){6}', re.S),lambda match: '"><b>该处已删</b>'),
+        (re.compile('">(<img src="https://jg-app(.*?)>){1}', re.S),lambda match: '"><b>该处已删</b>'),
         (re.compile('(<img src="http://upload.eeo.com.cn(.*?)>){1}', re.S),lambda match: ''),
+        #(re.compile('(<img src="https://np-newspic.dfcfw.com(.*?)>){1}', re.S),lambda match: ''),
         (re.compile('\u3000|<div>1</div>', re.S),lambda match: '')]
 
     feeds_dc = {
