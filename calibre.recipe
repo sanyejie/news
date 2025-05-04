@@ -93,11 +93,7 @@ class EooNews(BasicNewsRecipe):
                     continue
                 #date=time.strftime("%m-%d ",time.localtime())+re.findall(r'\d{2}:\d{2}',str(new))[0]+"" #%Y-%m-%d
                 ptime=re.findall(r'\d{2}:\d{2}',str(new))[0]
-                if now < ptime+":00":
-                    date=time.strftime("%m-%d ",time.localtime(time.time()-24*60*60))+ptime+"" #%Y-%m-%d
-                else:
-                    date=time.strftime("%m-%d ",time.localtime())+ptime+"" #%Y-%m-%d
-                articles.append(dict(title=title, url=url, date=date))
+                articles.append(dict(title=title, url=url, date=ptime))
             if len(articles) > 0:
                 ans.append((topic, articles))
         #return ans
