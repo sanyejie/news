@@ -73,10 +73,10 @@ class EooNews(BasicNewsRecipe):
     def parse_index(self):
         ans = []
         now = time.strftime("%H:%M:%S", time.localtime())
-        self.eoo3(ans)
         self.dc(ans,now)
         self.eoo1(ans)
         self.eoo2(ans)
+        self.eoo3(ans)
         return ans
     
     def dc(self,ans,now):
