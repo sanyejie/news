@@ -68,7 +68,7 @@ class EooNews(BasicNewsRecipe):
         '研究': 'https://app.eeo.com.cn/?app=article&controller=index&action=getMoreArticle&catid=3674',
     }
     feeds_eoo3 = {
-        '评论': 'https://app.eeo.com.cn/?app=article&controller=index&action=getMoreArticle&catid=3550&page=',#&page=-1&pageSize=14
+        '评论': 'https://app.eeo.com.cn/?app=article&controller=index&action=getMoreArticle&catid=3550&page=0',#&page=-1&pageSize=14
     }
     def parse_index(self):
         ans = []
@@ -142,7 +142,7 @@ class EooNews(BasicNewsRecipe):
             pages=0
             i=0
             while pages<=0:
-                news = self.fetch_data_eoo(furl+str(pages))['data']
+                news = self.fetch_data_eoo(furl)['data']
                 pages+=1
                 for new in news:
                     #url=new['m_url']
