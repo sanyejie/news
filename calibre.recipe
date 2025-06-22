@@ -103,6 +103,8 @@ class EooNews(BasicNewsRecipe):
             articles = []
             news = self.fetch_data_eoo(furl)['data']
             i=0
+            if news is None:
+                break
             for new in news:
                 url=new['m_url']
                 i+=1
@@ -123,6 +125,8 @@ class EooNews(BasicNewsRecipe):
             ltopic=topic
             news = self.fetch_data_eoo(furl)['data']
             i=0
+            if news is None:
+                break
             for new in news:
                 url=new['m_url']
                 i+=1
@@ -144,6 +148,8 @@ class EooNews(BasicNewsRecipe):
             while pages<=0:
                 news = self.fetch_data_eoo(furl)['data']
                 pages+=1
+                if news is None:
+                    break
                 for new in news:
                     #url=new['m_url']
                     url=new['url']
@@ -166,6 +172,7 @@ class EooNews(BasicNewsRecipe):
             return json.loads(f)
         except Exception as e:
             self.log.error('Fetch article failed(%s): %s' % (e, url))
+        return None
 
     def get_page_content(self, url):
         try:
