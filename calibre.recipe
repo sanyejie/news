@@ -73,10 +73,10 @@ class EooNews(BasicNewsRecipe):
     def parse_index(self):
         ans = []
         now = time.strftime("%H:%M:%S", time.localtime())
+        self.eoo3(ans)
         self.dc(ans,now)
         self.eoo1(ans)
         self.eoo2(ans)
-        self.eoo3(ans)
         return ans
     
     def dc(self,ans,now):
@@ -161,8 +161,11 @@ class EooNews(BasicNewsRecipe):
         return json.loads(file(path).read().decode('gbk')) #file(path)或open(path)都可以
     
     def fetch_data_eoo(self, url):
-        f = urllib.request.urlopen(url).read()
-        return json.loads(f)
+        try:
+            f = urllib.request.urlopen(url).read()
+            return json.loads(f)
+        except Exception as e:
+            self.log.error('Fetch article failed(%s): %s' % (e, url))
 
     def get_page_content(self, url):
         try:
