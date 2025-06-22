@@ -101,9 +101,10 @@ class EooNews(BasicNewsRecipe):
     def eoo1(self,ans):
         for topic, furl in self.feeds_eoo1.items():
             articles = []
-            news = self.fetch_data_eoo(furl)['data']
             i=0
-            if news is None:
+            try:
+                news = self.fetch_data_eoo(furl)['data']
+            except Exception as e:
                 break
             for new in news:
                 url=new['m_url']
@@ -123,9 +124,10 @@ class EooNews(BasicNewsRecipe):
         ltopic = ''
         for topic, furl in self.feeds_eoo2.items():
             ltopic=topic
-            news = self.fetch_data_eoo(furl)['data']
             i=0
-            if news is None:
+            try:
+                news = self.fetch_data_eoo(furl)['data']
+            except Exception as e:
                 break
             for new in news:
                 url=new['m_url']
@@ -146,7 +148,10 @@ class EooNews(BasicNewsRecipe):
             pages=0
             i=0
             while pages<=0:
-                news = self.fetch_data_eoo(furl)['data']
+                try:
+                    news = self.fetch_data_eoo(furl)['data']
+                except Exception as e:
+                    break
                 pages+=1
                 if news is None:
                     break
