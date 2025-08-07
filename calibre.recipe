@@ -31,9 +31,10 @@ class EooNews(BasicNewsRecipe):
     remove_tags = [
         dict(name='div',class_=["aboutctrl","abstract","thiszihao-box-add","top-wenzhang","xd-xd-xd-rwm","xd-lj","tit01","float-right"]),
         dict(name='a',class_=["xd-a-left","right_ewm"]),
+        dict(name='a',href=["https://acttg.eastmoney.com/pub/xxlout_khmbdfcfappnew_random_0007467a"]),
         dict(name='span',class_=["subtitle"]),
         dict(id=["slide_left_box"]),
-        dict(name=["head","header","script","style","ul"])] #要删除的标签列表
+        dict(name=["head","header","script","style","ul"])]
     remove_tags_before=[dict(name='div', class_=["contentwrap","contact","xd-bottom","w1200","wrap","inscon"])] #将删除第一个匹配元素前的所有标签
     remove_tags_after=[dict(name='div', class_=["txtinfos","t_box_public","xx_boxsing","xd-lj","rcon","TRS_Editor","article-page"])] #将删除第一个匹配元素后的所有标签
     preprocess_regexps = [
@@ -44,10 +45,6 @@ class EooNews(BasicNewsRecipe):
         (re.compile('<p class="k">.+?<p class="font36">(.+?)</p>\r?\n    <p class="mgb20">(.+?)</p>.+?<div class="rcon fr mgt40 por">', re.S),lambda match: '<div class="btc">'+match.group(1)+match.group(2)+'</div></div><div class="rcon fr mgt40 por">'),
         (re.compile('"pubtime_baidu">(.+?)</span>', re.S),lambda match: '"pubtime_baidu"><div class="btc">'+match.group(1)+'</div></span>'),
         (re.compile('<div style="display: none;"><img.+?</div>', re.S),lambda match: ''),
-        (re.compile('<img src="https://np-newspic.dfcfw.com/download/D25013824073691540441_w690h180.jpg".{1,90}/>', re.S),lambda match: ''),
-        (re.compile('<img src="https://np-newspic.dfcfw.com/download/D25411840164398846730_w690h389.jpg".{1,90}/>', re.S),lambda match: ''),
-        (re.compile('<img src="https://np-newspic.dfcfw.com/download/D24947936232563321001_w690h180.jpg".{1,90}/>', re.S),lambda match: ''),
-        (re.compile('<img src="https://np-newspic.dfcfw.com/download/D24723587176925434542_w690h180_o.jpg".{1,90}/>', re.S),lambda match: ''),
         (re.compile(' style=".+?"', re.S),lambda match: ''),
         #(re.compile('<img .{20,68}?\.png.+?>'),lambda match: ''),
         (re.compile('<div id="zoom" class="font16">.+?</div>', re.S),lambda match: '<div id="zoom" class="font16"> </div>'),
