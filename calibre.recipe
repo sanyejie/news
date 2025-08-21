@@ -18,7 +18,7 @@ class EooNews(BasicNewsRecipe):
     no_stylesheets = True
     remove_javascript = True
     extra_css = 'p{text-indent:1.2em;margin:0.3em 0;} \n img{display:block;text-indent:0;margin:1%;width:99%;height:auto;padding:0;border:0;} \n a{text-decoration:none;color:#000;} \n .calibre_navbar{display:none;} \n strong,h2,h1,h3,h4{font-weight:600;} \n h2,h1,h3,h4,.btc{text-indent:0;text-align:center;}'
-    max_articles_per_feed = 20 #篇数，默认100篇
+    max_articles_per_feed = 27 #篇数，默认100篇
     max_eoo = 16
     #oldest_article = 1 #天数，默认7天，下载几天之内的文章
     recursions = 0 #文章网页上可跟踪的链接级别数
