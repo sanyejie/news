@@ -38,7 +38,6 @@ class EooNews(BasicNewsRecipe):
     remove_tags_before=[dict(name='div', class_=["contentwrap","contact","xd-bottom","w1200","wrap","inscon"])] #将删除第一个匹配元素前的所有标签
     remove_tags_after=[dict(name='div', class_=["txtinfos","t_box_public","xx_boxsing","xd-lj","rcon","TRS_Editor","article-page"])] #将删除第一个匹配元素后的所有标签
     preprocess_regexps = [
-        (re.compile('href=.+?[ |>]', re.S),lambda match: ''),
         (re.compile('"title">(.+?)</div>', re.S),lambda match: '"title"><h4>'+match.group(1)+'</h4></div>'),
         (re.compile(' item">(.+?)</div>.+?</a>', re.DOTALL),lambda match: 'item"><div class="btc">'+match.group(1)+'</div></div>'),
         (re.compile('<span id="space_zuozhe">(.+?)<em class="fontUp">', re.S),lambda match: '<div class="btc"><span id="space_zuozhe">'+match.group(1)+'</div><em class="fontUp">'),
@@ -51,6 +50,7 @@ class EooNews(BasicNewsRecipe):
         (re.compile('<div id="zoom" class="font16">.+?</div>', re.S),lambda match: '<div id="zoom" class="font16"> </div>'),
         (re.compile('">(<img src="https://jg-app(.*?)>){1}', re.S),lambda match: '"><b>该处已删</b>'),
         (re.compile('(<img src="http://upload.eeo.com.cn(.*?)>){1}', re.S),lambda match: ''),
+        (re.compile('href=".+?"', re.S),lambda match: ''),
         #(re.compile('(<img src="https://np-newspic.dfcfw.com(.*?)>){1}', re.S),lambda match: ''),
         (re.compile('\u3000|<div>1</div>', re.S),lambda match: '')]
 
