@@ -45,7 +45,7 @@ class EooNews(BasicNewsRecipe):
         (re.compile('<p class="k">.+?<p class="font36">(.+?)</p>\r?\n    <p class="mgb20">(.+?)</p>.+?<div class="rcon fr mgt40 por">', re.S),lambda match: '<div class="btc">'+match.group(1)+match.group(2)+'</div></div><div class="rcon fr mgt40 por">'),
         (re.compile('"pubtime_baidu">(.+?)</span>', re.S),lambda match: '"pubtime_baidu"><div class="btc">'+match.group(1)+'</div></span>'),
         (re.compile('<div style="display: none;"><img.+?</div>', re.S),lambda match: ''),
-        (re.compile('<img src="https://np-newspic.dfcfw.com/download/D25488590138155037791_w690h389.jpg".{1,90}/>', re.S),lambda match: ''),#250817
+        (re.compile('<img src="https://np-newspic.dfcfw.com/download/D24903762970700780251_w690h389.jpg".{1,90}/>', re.S),lambda match: ''),#251006
         (re.compile('<img src="https://np-newspic.dfcfw.com/download/D24832930842412850501_w690h389.jpg".{1,90}/>', re.S),lambda match: ''),#250825
         (re.compile('<img src="https://np-newspic.dfcfw.com/download/D25753173264126031117_w690h389.jpg".{1,90}/>', re.S),lambda match: ''),#250903
         (re.compile(' style=".+?"', re.S),lambda match: ''),
