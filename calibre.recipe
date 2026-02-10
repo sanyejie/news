@@ -45,9 +45,9 @@ class EooNews(BasicNewsRecipe):
         (re.compile('<p class="k">.+?<p class="font36">(.+?)</p>\r?\n    <p class="mgb20">(.+?)</p>.+?<div class="rcon fr mgt40 por">', re.S),lambda match: '<div class="btc">'+match.group(1)+match.group(2)+'</div></div><div class="rcon fr mgt40 por">'),
         (re.compile('"pubtime_baidu">(.+?)</span>', re.S),lambda match: '"pubtime_baidu"><div class="btc">'+match.group(1)+'</div></span>'),
         (re.compile('<div style="display: none;"><img.+?</div>', re.S),lambda match: ''),
-        (re.compile('<img src="https://np-newspic.dfcfw.com/download/D24903762970700780251_w690h389.jpg".{1,90}/>', re.S),lambda match: ''),#251006
-        (re.compile('<img src="https://np-newspic.dfcfw.com/download/D24832930842412850501_w690h389.jpg".{1,90}/>', re.S),lambda match: ''),#250825
-        (re.compile('<img src="https://np-newspic.dfcfw.com/download/D25753173264126031117_w690h389.jpg".{1,90}/>', re.S),lambda match: ''),#250903
+        #(re.compile('<img src="https://np-newspic.dfcfw.com/download/D24903762970700780251_w690h389.jpg".{1,90}/>', re.S),lambda match: ''),#251006
+        (re.compile('<img src="https://np-newspic.dfcfw.com/download/D25488590138155037791_w690h389.jpg".{1,90}/>', re.S),lambda match: ''),#251027
+        (re.compile('<img src="https://np-newspic.dfcfw.com/download/D25753173264126031117_w690h389.jpg".{1,90}/>', re.S),lambda match: ''),#251021
         (re.compile(' style=".+?"', re.S),lambda match: ''),
         #(re.compile('<img .{20,68}?\.png.+?>'),lambda match: ''),
         (re.compile('<div id="zoom" class="font16">.+?</div>', re.S),lambda match: '<div id="zoom" class="font16"> </div>'),
@@ -56,7 +56,8 @@ class EooNews(BasicNewsRecipe):
         (re.compile('href="https://acttg.eastmoney.com/pub/xxlout_khmbdfcfappnew_random_0007467a"', re.S),lambda match: 'class="needdel"'),
         (re.compile('href=".+?"', re.S),lambda match: ''),
         #(re.compile('(<img src="https://np-newspic.dfcfw.com(.*?)>){1}', re.S),lambda match: ''),
-        (re.compile('\u3000|<div>1</div>', re.S),lambda match: '')]
+        (re.compile('\u3000|<div>1</div>', re.S),lambda match: ''),
+        (re.compile('<h3 class="emh3">东财图解·加点干货</h3><center><img', re.S),lambda match: '<a class="needdel"')]
 
     feeds_dc = {
         '东财': 'https://finance.eastmoney.com/',
