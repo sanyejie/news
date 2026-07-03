@@ -162,6 +162,8 @@ class EooNews(BasicNewsRecipe):
                     #url=new['m_url']
                     url=new['url']
                     i+=1
+                    if new['catid'] != '3564':
+                        continue
                     title=new['title']
                     if "台海观澜" in title or "自己的文明" in title:
                         continue
