@@ -63,15 +63,15 @@ class EooNews(BasicNewsRecipe):
         '东财': 'https://finance.eastmoney.com/',
     }
     feeds_eoo1 = {
-        '商业': 'https://app.eeo.com.cn/?app=article&controller=index&action=getMoreArticle&catid=3572',
+        '新科技': 'https://app.eeo.com.cn/?app=article&controller=index&action=getMoreArticle&catid=3556',
     }
     feeds_eoo2 = {
-        '科技': 'https://app.eeo.com.cn/?app=article&controller=index&action=getMoreArticle&catid=3549',
+        '能源': 'https://app.eeo.com.cn/?app=article&controller=index&action=getMoreArticle&catid=3682',
         '公司': 'https://app.eeo.com.cn/?app=article&controller=index&action=getMoreArticle&catid=3703',
-        '研究': 'https://app.eeo.com.cn/?app=article&controller=index&action=getMoreArticle&catid=3674',
+        '综合': 'https://app.eeo.com.cn/?app=article&controller=index&action=getMoreArticle&catid=3721',
     }
     feeds_eoo3 = {
-        '评论': 'https://app.eeo.com.cn/?app=article&controller=index&action=getMoreArticle&catid=3550&page=0',#&page=-1&pageSize=14
+        '评论': 'https://app.eeo.com.cn/?app=article&controller=index&action=getMoreArticle&catid=3564&page=0',#&page=-1&pageSize=14
     }
     def parse_index(self):
         ans = []
